@@ -212,7 +212,7 @@
 			</section>
 
 			<section>
-				Creation d'un component avec liste
+				Creation d'un component avec une liste
 
 				<div data-markdown>
 					<script type="text/template">
@@ -262,27 +262,6 @@
 			</section>
 
 			<section>
-				Utiliser un service
-				<div data-markdown>
-				<script type="text/template">
-				````
-				constructor(private candidatService: CandidatService) 
-				{
-					this.candidatService.getAllCandidat()
-					.map(res => <Candidat[]>res.json())
-					.subscribe(response => {
-						console.log(response);
-						this.candidats = response;
-					});
-				}
-				````
-				</script>
-				</div>
-
-
-			</section>
-
-			<section>
 				Introduction service & Http resquest
 				<div data-markdown>
 				<script type="text/template">
@@ -300,6 +279,28 @@
 					getAllCandidat() {
 						return this.http.get('http://localhost:3000/candidats');
 					}
+				}
+				````
+				</script>
+				</div>
+
+
+			</section>
+
+
+			<section>
+				Utiliser un service
+				<div data-markdown>
+				<script type="text/template">
+				````
+				constructor(private candidatService: CandidatService) 
+				{
+					this.candidatService.getAllCandidat()
+					.map(res => <Candidat[]>res.json())
+					.subscribe(response => {
+						console.log(response);
+						this.candidats = response;
+					});
 				}
 				````
 				</script>
